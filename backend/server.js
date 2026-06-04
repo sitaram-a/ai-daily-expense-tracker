@@ -19,10 +19,20 @@ app.use(express.json());
 app.use("/api/auth",authRoutes);
 app.use("/api/expense",expenseRoutes);
 
-app.listen(
-5000,
-()=>{
-console.log(
-"Server Running"
-);
+app.get("/", (req, res) => {
+  res.send("Backend Running 🚀");
 });
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server Running on ${PORT}`);
+});
+
+// app.listen(
+// 5000,
+// ()=>{
+// console.log(
+// "Server Running"
+// );
+// });
